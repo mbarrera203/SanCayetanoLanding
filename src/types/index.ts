@@ -1,4 +1,4 @@
-export type Category = 'Living' | 'Comedor' | 'Dormitorio' | 'Ofertas';
+export type Category = 'Living' | 'Comedor' | 'Dormitorio' | 'Electro' | 'Colchones' | 'Deco';
 
 export interface Product {
   id: string;
