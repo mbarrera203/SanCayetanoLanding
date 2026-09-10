@@ -43,14 +43,13 @@ export function Hero() {
       className="mx-auto max-w-[1400px] px-5 pt-6 sm:px-8 lg:px-12 lg:pt-10">
 
       <div className="grid items-stretch gap-8 lg:grid-cols-12 lg:gap-12">
-        <div className="flex flex-col justify-center lg:col-span-5 lg:py-10">
+        <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left lg:col-span-5 lg:py-10">
           <p className="text-sm font-medium text-terracotta">
             Colección Otoño 2026
           </p>
           <h1
             id="hero-heading"
             className="mt-5 text-[2.75rem] font-semibold leading-[1.03] tracking-tight text-charcoal sm:text-6xl lg:text-[4.25rem]">
-
             Muebles hechos para quedarse.
           </h1>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-charcoal-500">
@@ -58,31 +57,28 @@ export function Hero() {
             a mano en nuestro taller de San Cayetano. Envío e instalación en
             todo el país.
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="mt-9 flex flex-row items-center justify-center lg:justify-start gap-3 w-full">
             <a
               href="#destacados"
-              className="group inline-flex h-14 items-center gap-2.5 rounded-full bg-charcoal px-8 text-base font-medium text-white shadow-soft transition-colors duration-150 ease-out hover:bg-terracotta">
-
+              className="group inline-flex h-12 sm:h-14 items-center gap-2 rounded-full bg-charcoal px-5 sm:px-8 text-sm sm:text-base font-medium text-white shadow-soft transition-colors duration-150 ease-out hover:bg-terracotta whitespace-nowrap">
               Ver Colección
               <ArrowRightIcon
                 className="h-4 w-4 transition-transform duration-200 ease-smooth group-hover:translate-x-1"
                 aria-hidden="true" />
-
             </a>
             <a
               href="#taller"
-              className="inline-flex h-14 items-center rounded-full border border-sand-300 px-7 text-base font-medium text-charcoal-700 transition-colors duration-150 ease-out hover:border-charcoal hover:text-charcoal">
-
+              className="inline-flex h-12 sm:h-14 items-center rounded-full border border-sand-300 px-5 sm:px-7 text-sm sm:text-base font-medium text-charcoal-700 transition-colors duration-150 ease-out hover:border-charcoal hover:text-charcoal whitespace-nowrap">
               Conocer el taller
             </a>
           </div>
 
-          <dl className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-sand-200 pt-7">
+          <dl className="mt-12 grid max-w-md w-full grid-cols-3 gap-2 sm:gap-6 border-t border-sand-200 pt-7 mx-auto lg:mx-0">
             <div>
               <dt className="text-xs uppercase tracking-wide text-charcoal-400">
                 Cuotas
               </dt>
-              <dd className="mt-1 text-base font-semibold text-charcoal">
+              <dd className="mt-1 text-sm sm:text-base font-semibold text-charcoal">
                 12 sin interés
               </dd>
             </div>
@@ -90,7 +86,7 @@ export function Hero() {
               <dt className="text-xs uppercase tracking-wide text-charcoal-400">
                 Garantía
               </dt>
-              <dd className="mt-1 text-base font-semibold text-charcoal">
+              <dd className="mt-1 text-sm sm:text-base font-semibold text-charcoal">
                 5 años
               </dd>
             </div>
@@ -98,7 +94,7 @@ export function Hero() {
               <dt className="text-xs uppercase tracking-wide text-charcoal-400">
                 Entrega
               </dt>
-              <dd className="mt-1 text-base font-semibold text-charcoal">
+              <dd className="mt-1 text-sm sm:text-base font-semibold text-charcoal">
                 15 días
               </dd>
             </div>
