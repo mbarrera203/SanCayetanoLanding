@@ -1,9 +1,10 @@
 import React from 'react';
 import { ArrowRightIcon } from 'lucide-react';
-import { featuredProducts } from '../../data/products';
+import { useProducts } from '../../contexts/ProductsContext';
 import { ProductCard } from './ProductCard';
 
 export function FeaturedProducts() {
+  const { featuredProducts } = useProducts();
   return (
     <section
       id="destacados"

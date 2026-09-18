@@ -7,7 +7,8 @@ import {
     UtensilsIcon,
 } from 'lucide-react'
 import { Category } from '../../types'
-import { categories, countByCategory } from '../../data/products'
+import { categories } from '../../data/products'
+import { useProducts } from '../../contexts/ProductsContext'
 
 const icons: Record<Category, typeof SofaIcon> = {
     Living: SofaIcon,
@@ -19,6 +20,7 @@ const icons: Record<Category, typeof SofaIcon> = {
 }
 
 export function CategoryStrip() {
+    const { countByCategory } = useProducts()
     return (
         <section
             aria-labelledby="categorias-heading"

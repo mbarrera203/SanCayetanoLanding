@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRightIcon } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const heroOffers = [
   {
@@ -22,7 +21,7 @@ const heroOffers = [
     image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     alt: "Mesa de comedor de roble",
     title: "Comedor Roble Macizo",
-    description: "Llevalo en 12 cuotas sin interés con todas las tarjetas"
+    description: "Llevalo en 3 cuotas sin interés con Naranja X y tarjetas seleccionadas"
   }
 ];
 
@@ -79,7 +78,7 @@ export function Hero() {
                 Cuotas
               </dt>
               <dd className="mt-1 text-sm sm:text-base font-semibold text-charcoal">
-                12 sin interés
+                3 sin interés
               </dd>
             </div>
             <div>
@@ -103,30 +102,29 @@ export function Hero() {
 
         <div className="lg:col-span-7">
           <div className="relative h-[320px] overflow-hidden rounded-4xl bg-sand-100 sm:h-[440px] lg:h-full lg:min-h-[560px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8 }}
-                className="absolute inset-0 h-full w-full">
-
-                <img
-                  src={heroOffers[currentIndex].image}
-                  alt={heroOffers[currentIndex].alt}
-                  className="h-full w-full object-cover" />
-
-                <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-white/92 p-5 backdrop-blur sm:bottom-7 sm:left-7 sm:right-auto sm:max-w-xs shadow-xl">
-                  <p className="text-sm font-semibold text-charcoal">
-                    {heroOffers[currentIndex].title}
-                  </p>
-                  <p className="mt-1 text-sm text-charcoal-500">
-                    {heroOffers[currentIndex].description}
-                  </p>
+            {heroOffers.map((offer, index) => {
+              const isActive = index === currentIndex;
+              return (
+                <div
+                  key={offer.id}
+                  className={`absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out ${
+                    isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+                  }`}
+                >
+                  <img
+                    src={offer.image}
+                    alt={offer.alt}
+                    loading="eager"
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-white/92 p-5 backdrop-blur sm:bottom-7 sm:left-7 sm:right-auto sm:max-w-xs shadow-xl">
+                    <p className="text-sm font-semibold text-charcoal">{offer.title}</p>
+                    <p className="mt-1 text-sm text-charcoal-500">{offer.description}</p>
+                  </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
+              );
+            })}
+
 
             {/* Slider Dots */}
             <div className="absolute bottom-5 right-5 sm:bottom-7 sm:right-7 flex gap-2 z-10">

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CheckIcon, PlusIcon } from 'lucide-react';
 import { Product } from '../../types';
-import { formatPrice } from '../../utils/currency';
+import { formatInstallments, formatPrice } from '../../utils/currency';
 import { useCart } from '../../contexts/CartContext';
 
 interface ProductCardProps {
@@ -53,9 +53,44 @@ export function ProductCard({ product }: ProductCardProps) {
         <h3 className="mt-2 text-lg font-semibold leading-snug text-charcoal">
           {product.name}
         </h3>
-        <p className="mt-1.5 text-sm leading-relaxed text-charcoal-500">
+        <p className="mt-1.5 text-sm leading-relaxed text-charcoal-500 line-clamp-2">
           {product.description}
         </p>
+
+        {(product.brand || product.material || product.woodType || product.energyEfficiency || product.capacity || (product.dimensions && product.dimensions.width && product.dimensions.width > 0) || product.deliveryTime) && (
+          <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+            {product.brand && (
+              <span className="inline-flex items-center rounded-md bg-sand-200/80 px-2 py-0.5 text-[11px] font-semibold text-charcoal-800">
+                {product.brand}
+              </span>
+            )}
+            {(product.material || product.woodType) && (
+              <span className="inline-flex items-center rounded-md bg-sand-100 px-2 py-0.5 text-[11px] font-medium text-charcoal-700">
+                {product.material || product.woodType}
+              </span>
+            )}
+            {product.energyEfficiency && (
+              <span className="inline-flex items-center rounded-md bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
+                ⚡ {product.energyEfficiency}
+              </span>
+            )}
+            {product.capacity && (
+              <span className="inline-flex items-center rounded-md bg-sand-100 px-2 py-0.5 text-[11px] font-medium text-charcoal-600">
+                {product.capacity}
+              </span>
+            )}
+            {product.dimensions && product.dimensions.width && product.dimensions.width > 0 ? (
+              <span className="inline-flex items-center rounded-md bg-sand-100 px-2 py-0.5 text-[11px] font-medium text-charcoal-600">
+                {product.dimensions.width}×{product.dimensions.depth}×{product.dimensions.height} cm
+              </span>
+            ) : null}
+            {product.deliveryTime && (
+              <span className="inline-flex items-center rounded-md bg-terracotta-50 px-2 py-0.5 text-[11px] font-medium text-terracotta">
+                {product.deliveryTime}
+              </span>
+            )}
+          </div>
+        )}
 
         <div className="mt-auto pt-5">
           <div className="flex items-baseline gap-2.5">
@@ -68,6 +103,10 @@ export function ProductCard({ product }: ProductCardProps) {
               </span>
             }
           </div>
+          <p className="mt-1 text-xs text-charcoal-500 font-medium">
+            Hasta {formatInstallments(product.price, 3)}
+          </p>
+
           <button
             type="button"
             onClick={handleAdd}

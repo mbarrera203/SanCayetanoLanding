@@ -1,8 +1,9 @@
 import { ArrowRightIcon, FlameIcon } from 'lucide-react'
-import { offerProducts } from '../../data/products'
+import { useProducts } from '../../contexts/ProductsContext'
 import { ProductCard } from './ProductCard'
 
 export function OffersSection() {
+    const { offerProducts } = useProducts()
     return (
         <section
             id="ofertas"
@@ -23,8 +24,8 @@ export function OffersSection() {
                             Ofertas de la semana
                         </h2>
                         <p className="mt-3 max-w-lg text-base text-charcoal-500">
-                            Precios rebajados en muebles, electro y colchones, con 12 cuotas
-                            sin interés y 15% off pagando de contado.
+                            Precios rebajados en muebles, electro y colchones, con 3 cuotas
+                            sin interés y 15% off pagando por transferencia o contado.
                         </p>
                     </div>
                     <a

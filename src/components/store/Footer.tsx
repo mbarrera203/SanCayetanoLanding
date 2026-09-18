@@ -10,13 +10,15 @@ import {
   'lucide-react';
 import { navLinks } from '../../data/products';
 import {
+  CabalMark,
   CashMark,
   MastercardMark,
-  MercadoPagoMark,
-  PixMark,
+  NaranjaMark,
+  PosnetMark,
   VisaMark
 } from
   '../PaymentMarks';
+
 
 const WhatsappIcon = ({ className, "aria-hidden": ariaHidden }: { className?: string, "aria-hidden"?: boolean | "true" | "false" }) => (
   <svg
@@ -154,16 +156,17 @@ export function Footer() {
                 Medios de pago
               </p>
               <div className="mt-4 flex flex-wrap items-center gap-3">
-                <MercadoPagoMark />
+                <PosnetMark />
+                <NaranjaMark />
                 <VisaMark />
                 <MastercardMark />
-                <PixMark />
+                <CabalMark />
                 <CashMark />
               </div>
-              <p className="mt-4 text-xs text-charcoal-300">
-                Hasta 12 cuotas sin interés con Mercado Pago y tarjetas
-                bancarias.
+              <p className="mt-4 text-xs text-charcoal-300 leading-relaxed">
+                3 cuotas sin interés con Tarjeta Naranja X todos los días, y con Visa y Mastercard los miércoles y sábados a través de Posnet. 15% off por transferencia bancaria.
               </p>
+
             </div>
           </div>
         </div>
